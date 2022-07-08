@@ -19,8 +19,21 @@ router.post('/', (req,res) => {
     res.send(`User with the name ${user.firstName} added to the database`);
 });
 
-router.post('/', (req, res) => {
-    
-})
+// id is from req params
+router.get('/:id', (req, res) => {
+    const { id } = req.params;
+
+    const foundUser = users.find((user) => user.id === id);
+
+    console.log(foundUser);
+
+    res.send(foundUser);
+});
+
+router.delete('/:id', (req, res) => {
+    const { id } = req.params;
+
+    users = users.filter((user) => user.id !== id);
+});
 
 export default router;
