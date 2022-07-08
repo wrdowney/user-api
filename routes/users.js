@@ -4,18 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 // initialize router
 const router = express.Router();
 
-const users = [
-    {
-        firstName: "John",
-        lastName: "Doe",
-        age: 25
-    },
-    {
-        firstName: "Jane",
-        lastName: "Doe",
-        age: 24
-    }
-]
+const users = []
 
 // all routes are starting w/ /users
 router.get('/', (req, res) => {
