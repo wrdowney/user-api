@@ -45,21 +45,15 @@ router.patch('/:id', (req, res) => {
     const { id } = req.params;
     const { firstName, lastName, age } = req.body;
 
-    if(firstName) {
-        user.firstName = firstName;
-    }
-
-    if(lastName) {
-        user.lastName = lastName;
-    }
-
-    if(age) {
-        user.age = age;
-    }
-
     const user = users.find((user) => user.id === id);
 
+    if(firstName) user.firstName = firstName;
 
+    if(lastName) user.lastName = lastName;
+
+    if(age) user.age = age;
+
+    res.send(`User with the id ${id} updated in the database`);
 });
 
 export default router;
